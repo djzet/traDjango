@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>О нас</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+<h2>О нас</h2>
+<div class="link">
+    <a href="{% url 'index' %}">Главная</a>
+    <a href="{% url 'product' %}">Продукты</a>
+    <a href="{% url 'about' %}">О нас</a>
+    <a href="{% url 'contacts' %}">Контакты</a>
+</div>
+<div class="text">
+    <p>Это информация о нас</p>
+</div>
+</body>
+</html>

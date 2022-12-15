@@ -1,0 +1,24 @@
+{% load bootstrap4 %}
+{% load static %}
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать категорию</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+<h2>Создать продукт</h2>
+<a href="{% url 'index' %}">Главная</a>
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form layout='horizontal' %}
+    {% buttons submit='Содать' %} {% endbuttons %}
+</form>
+</body>
+</html>
+{% else %}
+<a href="{% url 'index' %}">Главная</a>
+<p>Сначала авторизуруйтесь</p>
+{% endif %}

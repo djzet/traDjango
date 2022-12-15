@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Товары</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+<h2>Товары</h2>
+<div class="link">
+    <a href="{% url 'index' %}">Главная</a>
+    <a href="{% url 'product' %}">Продукты</a>
+    <a href="{% url 'about' %}">О нас</a>
+    <a href="{% url 'contacts' %}">Контакты</a>
+</div>
+{% if product_list %}
+{% for product in product_list %}
+<div>
+    <p>Название: {{product.name}}</p>
+    <p>Описание: {{product.summary}}</p>
+    <p>Категория: {{product.category}}</p>
+    <img src="{{product.photo.url}}" alt="картинка">
+</div>
+{% endfor %}
+{% else %}
+<p>Продуктов нет</p>
+{% endif %}
+</body>
+</html>
